@@ -1,21 +1,29 @@
 class_name Player extends CharacterBody2D
 
-#Variables
+#Variables movement
 var cardinal_direction : Vector2 = Vector2.RIGHT
 var direction : Vector2 = Vector2.ZERO
-var move_speed : float = 75.0
+var move_speed : float = 150.0
 
+#Variables Shooting
+var shoot_delay : float = 0.5
+var shoot_cooldown : float = 0.0
+
+
+#Variables scenes
 var bullet_scene = preload("res://scenes/player/bullet.tscn")
 
 @onready var sprite : Sprite2D = $Sprite2D
 
 
 
-func _process(_delta : float) -> void:
+func _process(delta : float) -> void:
 	SetDirection()
-	if Input.is_action_just_pressed("Shoot"):
+	if Input.is_action_pressed("Shoot") and shoot_cooldown <= 0:
 		Shoot()
-
+		shoot_cooldown = shoot_delay
+	
+	shoot_cooldown -= delta
 
 #movement
 func _physics_process(_delta : float) -> void:
