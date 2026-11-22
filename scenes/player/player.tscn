@@ -7,14 +7,16 @@
 radius = 4.219409
 height = 20.14346
 
-[node name="Player" type="CharacterBody2D" unique_id=1297798164]
+[node name="Node2D" type="Node2D" unique_id=1068645732]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1297798164]
 script = ExtResource("1_dovo2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1643978445]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1643978445]
 position = Vector2(-1.065, 0)
 rotation = 1.5707964
 scale = Vector2(1.185, 1.185)
 shape = SubResource("CapsuleShape2D_x7p2l")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1390019660]
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1390019660]
 texture = ExtResource("1_8afob")
