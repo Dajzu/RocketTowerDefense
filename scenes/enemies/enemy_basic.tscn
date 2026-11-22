@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cx740x0jiiv0s"]
+
+[ext_resource type="Script" uid="uid://b6jrqmmjjyuhf" path="res://scripts/enemies/enemy_basic.gd" id="1_3830d"]
+[ext_resource type="Texture2D" uid="uid://le0mc6jlhgu3" path="res://assets/enemies/enemy_basic.png" id="2_haaaj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gmlin"]
+
+[node name="Enemy_basic" type="CharacterBody2D" unique_id=1590967503]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_3830d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=133634107]
+position = Vector2(-0.895, 0)
+rotation = 1.5707964
+scale = Vector2(0.855, 0.855)
+shape = SubResource("CapsuleShape2D_gmlin")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=245462119]
+texture = ExtResource("2_haaaj")

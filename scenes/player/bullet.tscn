@@ -3,11 +3,21 @@
 [ext_resource type="Script" uid="uid://c0bmmrchuq8vo" path="res://scripts/player/bullet.gd" id="1_2as5g"]
 [ext_resource type="Texture2D" uid="uid://cw7bhjwfcpask" path="res://assets/player/Bullet.png" id="2_j5eos"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
+size = Vector2(6, 2)
+
 [node name="Bullet" type="Area2D" unique_id=1269609882]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_2as5g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1731620619]
+position = Vector2(20, 0)
+scale = Vector2(1.055, 1.29)
+shape = SubResource("RectangleShape2D_gmlin")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=69874445]
 position = Vector2(20, 0)
 texture = ExtResource("2_j5eos")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
